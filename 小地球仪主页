@@ -36,6 +36,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: none; /* 默认不显示图片 */
+    }
+
+    /* 如果视频不能播放，显示图片 */
+    .background video[autoplay]:not(:playing) + img {
+      display: block; /* 显示备用图片 */
     }
 
     .content {
@@ -98,7 +104,7 @@
     .footer {
       font-size: 0.8rem;
       margin-bottom: 10px;
-      text-align: center; /* 改为居中显示 */
+      text-align: center;
     }
 
     .footer a {
@@ -131,19 +137,20 @@
 <body>
   <!-- 背景视频 -->
   <div class="background">
-    <video autoplay loop muted>
-      <source src="https://eo.llogin.cn/img/%E5%B0%8F%E5%9C%B0%E7%90%83%E4%BB%AA.mp4" type="video/mp4">
-      <!-- 如果视频不支持，显示备用的图片 -->
-      <img src="background-image.jpg" alt="备用背景图片">
-    </video>
+
+    <video autoplay loop muted class="background-video">
+  <source src="/img/cccc.mp4" type="video/mp4">
+  <source src="/img/aaaa.png" type="image/png">
+</video>
+
   </div>
 
   <!-- 主体内容 -->
   <div class="content">
     <!-- Logo 和标题 -->
     <div class="header">
-      <div class="logo">小地球仪</div>
-      <div class="subtitle">极致简洁 互通世界</div>
+      <div class="logo">肥肥加速</div>
+      <div class="subtitle">一键连接 互通世界</div>
     </div>
 
     <!-- 按钮部分 -->
@@ -165,12 +172,24 @@
         macOS
       </a>
     </div>
+    
+<script>
+  window.addEventListener('load', function() {
+    var video = document.querySelector('.background-video');
+    if (video) {
+      video.play().catch(function(error) {
+        console.log('自动播放失败，视频可能需要手动播放', error);
+      });
+    }
+  });
+</script>
 
     <!-- 页脚部分 -->
     <div class="footer">
-      <div>xiaodiqiuyi@gmail.com | <a href="#">帮助中心</a> | <a href="#">Telegram</a></div>
+      <div>feifei@gmail.com | <a href="#">帮助中心</a> | <a href="https://t.me/mickeyjiasu">Telegram</a></div>
       <div>© 2019 - 2025 Palantir LTD. All Rights Reserved</div>
     </div>
   </div>
+  
 </body>
 </html>
