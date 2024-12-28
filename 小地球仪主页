@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小地球仪</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    /* 背景视频 */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      margin: 10px 0 30px;
+    }
+
+    /* 按钮部分 */
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .button img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    /* 页脚部分 */
+    .footer {
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      text-align: center; /* 改为居中显示 */
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .language-switch {
+      margin-bottom: 10px;
+    }
+
+    /* 使页脚在小屏幕下不会被切掉 */
+    @media (max-width: 768px) {
+      .footer {
+        font-size: 0.7rem;
+        padding: 10px;
+      }
+
+      .language-switch {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 背景视频 -->
+  <div class="background">
+    <video autoplay loop muted>
+      <source src="https://eo.llogin.cn/img/%E5%B0%8F%E5%9C%B0%E7%90%83%E4%BB%AA.mp4" type="video/mp4">
+      <!-- 如果视频不支持，显示备用的图片 -->
+      <img src="background-image.jpg" alt="备用背景图片">
+    </video>
+  </div>
+
+  <!-- 主体内容 -->
+  <div class="content">
+    <!-- Logo 和标题 -->
+    <div class="header">
+      <div class="logo">小地球仪</div>
+      <div class="subtitle">极致简洁 互通世界</div>
+    </div>
+
+    <!-- 按钮部分 -->
+    <div class="buttons">
+      <a href="baidu.com" class="button">
+        <img src="https://www.xiaodiqiuyi.com/assets/appstore-efeaa3ac.svg" alt="AppStore 图标">
+        AppStore
+      </a>
+      <a href="baidu.com" class="button">
+        <img src="https://www.xiaodiqiuyi.com/assets/android-7facdfae.svg" alt="Android 图标">
+        Android
+      </a>
+      <a href="baidu.com" class="button">
+        <img src="https://www.xiaodiqiuyi.com/assets/windows-bc1852bb.svg" alt="Windows 图标">
+        Windows
+      </a>
+      <a href="baidu.com" class="button">
+        <img src="https://www.xiaodiqiuyi.com/assets/mac-39a7e9c1.svg" alt="macOS 图标">
+        macOS
+      </a>
+    </div>
+
+    <!-- 页脚部分 -->
+    <div class="footer">
+      <div>xiaodiqiuyi@gmail.com | <a href="#">帮助中心</a> | <a href="#">Telegram</a></div>
+      <div>© 2019 - 2025 Palantir LTD. All Rights Reserved</div>
+    </div>
+  </div>
+</body>
+</html>
