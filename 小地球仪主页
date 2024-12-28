@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>小地球仪</title>
+  <title>肥肥加速</title>
   <style>
     body, html {
       margin: 0;
@@ -12,139 +12,131 @@
       height: 100%;
       overflow: hidden;
       font-family: Arial, sans-serif;
-      background-color: black;
       color: white;
     }
-
-    /* 背景视频 */
-    .background {
+    #background-video {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
       z-index: -1;
     }
-
-    .background video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .background img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none; /* 默认不显示图片 */
-    }
-
-    /* 如果视频不能播放，显示图片 */
-    .background video[autoplay]:not(:playing) + img {
-      display: block; /* 显示备用图片 */
-    }
-
     .content {
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       height: 100%;
       text-align: center;
       padding: 20px;
     }
-
     .logo {
       font-size: 3rem;
       font-weight: bold;
-      margin-top: 20px;
+      margin-bottom: 20px;
     }
-
     .subtitle {
       font-size: 1.5rem;
-      margin: 10px 0 30px;
+      margin-bottom: 30px;
     }
-
-    /* 按钮部分 */
     .buttons {
       display: flex;
-      gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
     }
-
     .button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 120px;
-      height: 100px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 5px;
       text-decoration: none;
       color: white;
-      font-size: 0.9rem;
+      font-size: 1rem;
       transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: calc(50% - 10px); /* 每行两个按钮 */
+      box-sizing: border-box;
+      background-color: rgba(128, 128, 128, 0.5); /* 灰色背景 */
     }
-
-    .button:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
     .button img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 10px;
+      height: 20px;
+      width: auto;
     }
-
-    /* 页脚部分 */
+    .button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
     .footer {
-      font-size: 0.8rem;
-      margin-bottom: 10px;
+      position: absolute;
+      bottom: 20px;
       text-align: center;
+      font-size: 0.9rem;
     }
-
     .footer a {
       color: white;
       text-decoration: none;
-      margin: 0 5px;
+      margin: 0 10px;
     }
-
     .footer a:hover {
       text-decoration: underline;
     }
 
-    .language-switch {
-      margin-bottom: 10px;
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        font-size: 1.2rem;
+      }
+      .buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .button {
+        width: calc(50% - 10px); /* 每行2个按钮 */
+        font-size: 1.2rem;
+        padding: 15px 0;
+      }
+      .button img {
+        height: 25px;
+      }
+      .footer {
+        font-size: 0.8rem;
+      }
     }
 
-    /* 使页脚在小屏幕下不会被切掉 */
-    @media (max-width: 768px) {
-      .footer {
-        font-size: 0.7rem;
-        padding: 10px;
+    /* PC端优化 */
+    @media (min-width: 769px) {
+      .logo {
+        font-size: 3.5rem;
       }
-
-      .language-switch {
-        margin-top: 10px;
+      .subtitle {
+        font-size: 1.8rem;
+      }
+      .button {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+      }
+      .button img {
+        height: 22px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 背景视频 -->
-  <div class="background">
-
-    <video autoplay loop muted class="background-video">
-  <source src="/img/cccc.mp4" type="video/mp4">
-  <source src="/img/aaaa.png" type="image/png">
-</video>
-
-  </div>
-
+  <video id="background-video" autoplay loop muted>
+    <source src="https://eo.llogin.cn/img/ccc.mp4" type="video/mp4">
+    您的浏览器不支持HTML5视频播放。
+  </video>
   <!-- 主体内容 -->
   <div class="content">
     <!-- Logo 和标题 -->
@@ -155,34 +147,19 @@
 
     <!-- 按钮部分 -->
     <div class="buttons">
-      <a href="baidu.com" class="button">
+      <a href="https://www.baidu.com" class="button">
         <img src="https://www.xiaodiqiuyi.com/assets/appstore-efeaa3ac.svg" alt="AppStore 图标">
-        AppStore
       </a>
-      <a href="baidu.com" class="button">
+      <a href="https://www.baidu.com" class="button">
         <img src="https://www.xiaodiqiuyi.com/assets/android-7facdfae.svg" alt="Android 图标">
-        Android
       </a>
-      <a href="baidu.com" class="button">
+      <a href="https://www.baidu.com" class="button">
         <img src="https://www.xiaodiqiuyi.com/assets/windows-bc1852bb.svg" alt="Windows 图标">
-        Windows
       </a>
-      <a href="baidu.com" class="button">
+      <a href="https://www.baidu.com" class="button">
         <img src="https://www.xiaodiqiuyi.com/assets/mac-39a7e9c1.svg" alt="macOS 图标">
-        macOS
       </a>
     </div>
-    
-<script>
-  window.addEventListener('load', function() {
-    var video = document.querySelector('.background-video');
-    if (video) {
-      video.play().catch(function(error) {
-        console.log('自动播放失败，视频可能需要手动播放', error);
-      });
-    }
-  });
-</script>
 
     <!-- 页脚部分 -->
     <div class="footer">
@@ -190,6 +167,5 @@
       <div>© 2019 - 2025 Palantir LTD. All Rights Reserved</div>
     </div>
   </div>
-  
 </body>
 </html>
