@@ -1,0 +1,14 @@
+https://alist.nn.ci/zh/guide/install/docker.html
+一键docker部署
+docker run -d --restart=unless-stopped -v /etc/alist:/opt/alist/data -p 5244:5244 -e PUID=0 -e PGID=0 -e UMASK=022 --name="alist" xhofe/alist:latest
+生成管理账户和密码
+docker exec -it alist ./alist admin random
+访问
+IP+端口访问
+
+
+
+
+故障排查
+为什么我在安装/升级后打开网页时出现错误 failed get storage: can't find storage with rawPath: /？
+因为你还没有添加任何存储，点击底部登录后再次点击管理进入后台在存储页面添加存储。
